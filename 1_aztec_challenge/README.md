@@ -2,7 +2,7 @@
 
 "Hello Aztec my old friend."
 
-(Aztec.gif)
+[Aztec](Aztec.gif)
 
 # Solution
 

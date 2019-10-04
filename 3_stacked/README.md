@@ -59,7 +59,7 @@ s main
 VV
 ```
 
-!(img/01_r2.png)
+![Radare2](img/01_r2.png)
 
 1. So we have a big function at ```0x4010cd``` that is called if we provded 
    something as an argument,  otherwise the programm exits.
@@ -186,10 +186,10 @@ VV
 
     Yes !
 
-11. Point 1 in the picture shows the breakpoint that we're constantly hitting, point2 the
-    memory address used for the comparison.
+11. Point 1 in the picture shows the breakpoint that we're constantly hitting. Point 2 the
+    memory address used for the comparison:
 
-    !(img/03_r2_decode_function.png)
+    ![Decode](img/03_r2_decode_function.png)
 
 12. Let's try to see what's the content of ```0x4040b8``` at the first itteration:
 

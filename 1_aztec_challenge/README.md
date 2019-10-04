@@ -2,6 +2,8 @@
 
 "Hello Aztec my old friend."
 
+(Aztec.gif)
+
 # Solution
 
 1. Open the GIT with Gimp

@@ -274,7 +274,7 @@ VV
     Bad password!
     ```
  
-12. W00t ! We've got our flag ```Fr3ak1nR0P```` let's try it
+12. W00t ! We've got our flag ```Fr3ak1nR0P``` let's try it
 
     ```
     ./stacked Fr3ak1nR0P
@@ -319,7 +319,8 @@ VV
     ```
 
     So there's some logic somewhere that adds a number between 1 and 5 to each one
-    of our initial chars. I won't go further for now.
+    of our initial chars. I won't go further for now, I tried to follow a bit what was
+    going on but I get lost in the Matrix. Any hints are welcome ! :)
 
 
 * https://en.wikipedia.org/wiki/Setcontext

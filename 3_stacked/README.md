@@ -59,7 +59,6 @@ s main
 VV
 ```
 
-![Radare2](img/01_r2.png)
 
 1. So we have a big function at ```0x4010cd``` that is called if we provded 
    something as an argument,  otherwise the programm exits.
@@ -68,10 +67,14 @@ VV
    it with 10 chars ```Ep/_i,lP/N```, that's probably the flag in its
    obfuscated form.
 
+   ![Radare2](img/01_r2.png)
+
 3. After pushing all the chars in the buffer it starts the swapcontext dance
-   with getcontext(), then it reallocates a 1024B buffer then calls makecontext(),
-   swapcontext() and finally based on the value of ```0x404060``` it either jump
-   to 0x401401 anf prints "Bad password!" or goes to 0x401412 and prints "Good job!".
+   with ```getcontext()```, then it reallocates a 1024B buffer then calls ```makecontext()```,
+   ```swapcontext()``` and finally based on the value of ```0x404060``` it either jump
+   to ```0x401401``` and prints "Bad password!" or goes to ```0x401412``` and prints "Good job!".
+
+   ![Function End](img/function_end.png)
 
 4. Ok so we need to understand what these context functions are doing:
 
@@ -130,6 +133,8 @@ VV
    we quickly end-up around ```0x401526```,  it compares the content of ```rax``` with the
    content or memory at address ```0x4040b8```.
 
+   ![Decode](img/03_r2_decode_function.png)
+
 7. Let's try to put a breakpoint here and see what happens:
 
    ```bash
@@ -186,12 +191,8 @@ VV
 
     Yes !
 
-11. Point 1 in the picture shows the breakpoint that we're constantly hitting. Point 2 the
-    memory address used for the comparison:
 
-    ![Decode](img/03_r2_decode_function.png)
-
-12. Let's try to see what's the content of ```0x4040b8``` at the first itteration:
+11. Let's try to see what's the content of ```0x4040b8``` at the first itteration:
 
     ```
     [0x00401526]> px 4 @0x4040b8
@@ -273,14 +274,14 @@ VV
     Bad password!
     ```
  
-13. W00t ! We've got our flag ```Fr3ak1nR0P```` let's try it
+12. W00t ! We've got our flag ```Fr3ak1nR0P```` let's try it
 
     ```
     ./stacked Fr3ak1nR0P
     Good job!
     ```
 
-14. If you remember at point 2 the chars that were initialized with ```Ep/_i,lP/N```
+13. If you remember at point 2 the chars that were initialized with ```Ep/_i,lP/N```
     converting it to Decimal it gives us:
 
     ```python

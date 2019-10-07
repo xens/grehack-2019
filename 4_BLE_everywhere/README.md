@@ -332,7 +332,7 @@ Capture was made using the Nordic BLE Sniffer, to decode properly the fileds ins
    ```
 
 5. Googling a bit I ended up on that GH page -> https://github.com/akx/Paulig-Muki/blob/master/API.md
-   That really helped me to reverse the image, so it's a 176x264
+   that really helped me to reverse the image, so it's a 176x264
    monochrome image with 1B per pixel. I really "invested" a lot
    time into PIL trying to figure out how to obtain something out
    of this bytestring, after reversing the endian-ness of the
@@ -365,6 +365,8 @@ Capture was made using the Nordic BLE Sniffer, to decode properly the fileds ins
    and the image:
 
    ![image](img/01_answer.bmp)
+
+   flag = ```GH19{Bluetoothnotsosmart}```
 
 # Refs
 
